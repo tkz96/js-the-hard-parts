@@ -42,3 +42,42 @@ function copyArrayAndManipulate(array, instruction) {
  
 const inputArray = [1, 2, 3];
 function copyArrayAndManipulate(inputArray, multiplyBy2);
+
+/*
+Any function that takes in a function or returns a function is a Higher-Order Function HOF.
+The "baby" function that an HOF takes in is a callback function.
+*/
+
+function multiplyBy2(input) { return input * 2; } // 1
+
+const multiplyBy2 = (input) => { return input * 2 } // 2
+
+const multiplyBy2 = (input) => input*2; // 3
+
+const multiplyBy2 = input => input*2; // 4
+
+/*
+The Arrow function was introduced in ES6.
+As we descend, the same code is becoming more and more legible but not necessarily more readable.
+We have less to look at and it is prettier, but it is essentially doing the same that is happening on line 51.
+The arrow function implicitly adds a return keyword.
+const x = () => {}
+
+Anonymous functions are functions being passed to HOFs.
+({})
+*/
+
+function createFunc() {
+  function multiplyBy2(num) {
+    return num*2;
+  }
+  return multiplyBy2;
+}
+
+const generatedFunc = createFunc();
+const result = generatedFunc(3);
+
+/*
+Closures are said to be the most esoteric parts of JS. Those who can understand them understand JS.
+Returning a function from another function.
+*/
